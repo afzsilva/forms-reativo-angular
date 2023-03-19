@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit{
+
+  constructor(){}
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  createForm(){}
+
+  onSubmit(){
+
+  }
 
 }
