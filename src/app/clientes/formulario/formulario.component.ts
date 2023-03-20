@@ -1,4 +1,6 @@
+import { Cliente } from './../shared/cliente';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -7,15 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit{
 
-  constructor(){}
+  formCliente!: FormGroup;
+
+  constructor(){  }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.createForm(new Cliente);
   }
 
-  createForm(){}
+  createForm(cliente:Cliente){
+
+    this.formCliente = new FormGroup({
+
+      nome: new FormControl(cliente.nome),
+
+    });
+
+
+
+  }
 
   onSubmit(){
+    console.log(this.formCliente.value);
 
   }
 

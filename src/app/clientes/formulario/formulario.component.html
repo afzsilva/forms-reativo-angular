@@ -1,9 +1,9 @@
 <div class="container mt-5">
-  <form>
+  <form [formGroup]="formCliente" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label for="nome">Nome</label>
-      <input type="text" class="form-control" name="nome" id="nome" required>
+      <input type="text" class="form-control" name="nome" id="nome" required formControlName="nome">
     </div>
 
     <div class="form-group">
