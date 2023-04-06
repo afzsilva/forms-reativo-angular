@@ -30,16 +30,21 @@ export class FormularioComponent implements OnInit{
 
     });
 
-
-
   }
 
   onSubmit(){
     console.log(this.formCliente.value);// mostra os valores presentes FormControls
     console.log(this.formCliente.controls);//Mostra FormControls
     console.log(this.formCliente.get("genero"));//obter uma propriedade do FormGroup
-
-
+    this.limparForm();
   }
+
+
+  //LimparFormulario
+  limparForm(){
+    //this.createForm(new Cliente()); //op1
+    this.formCliente.reset(new Cliente()); //op2
+  }
+
 
 }
