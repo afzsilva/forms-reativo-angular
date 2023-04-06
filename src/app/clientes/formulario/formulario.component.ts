@@ -1,6 +1,6 @@
 import { Cliente } from './../shared/cliente';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -11,7 +11,7 @@ export class FormularioComponent implements OnInit{
 
   formCliente!: FormGroup;
 
-  constructor(){  }
+  constructor(private formbuilder:FormBuilder){  }
 
   ngOnInit(): void {
     this.createForm(new Cliente);
@@ -19,14 +19,14 @@ export class FormularioComponent implements OnInit{
 
   createForm(cliente:Cliente){
 
-    this.formCliente = new FormGroup({
+    this.formCliente = this.formbuilder.group({
 
-      nome: new FormControl(cliente.nome),
-      genero: new FormControl(cliente.genero),
-      tipo: new FormControl(cliente.tipo),
-      dataNascimento: new FormControl(cliente.dataNascimento),
-      observacao: new FormControl(cliente.observacao),
-      inativo: new FormControl(cliente.inativo),
+      nome: [cliente.nome],
+      genero: [cliente.genero],
+      tipo: [cliente.tipo],
+      dataNascimento: [cliente.dataNascimento],
+      observacao: [cliente.observacao],
+      inativo: [cliente.inativo],
 
     });
 
